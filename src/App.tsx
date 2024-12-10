@@ -57,7 +57,7 @@ function App() {
         </div>
         <footer>
           <p>
-            Made for fun. Keep clicking Phir and answering questions! 😂
+            Cuteeeiiiiiii! 😂
           </p>
         </footer>
       </header>
