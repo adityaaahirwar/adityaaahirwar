@@ -1,68 +1,35 @@
-import { useState } from "react";
-import "./App.css";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [phirCount, setPhirCount] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState("");
-  const [conversation, setConversation] = useState([]);
-
-  const questions = [
-    "Phir kya kiya?",
-    "Phir aapne kya socha?",
-    "Phir baat kya hui?",
-    "Phir tumne khana khaya?",
-    "Phir coding shuru ki?",
-    "Phir neend aayi ya nahi?",
-  ];
-
-  const messages = [
-    "Phir 🤷",
-    "Phir == Phir, but why?",
-    "Phir kuch aur bolo yaar!",
-    "Phir soch lo 😂",
-    "Bas Phir hi karte rehoge?",
-    "Phir... 🤦‍♂️",
-  ];
-
-  const askQuestion = () => {
-    const question = questions[Math.floor(Math.random() * questions.length)];
-    setCurrentQuestion(question);
-    setConversation((prev) => [...prev, `🤔 Question: ${question}`]);
-  };
-
-  const handlePhirClick = () => {
-    setPhirCount(phirCount + 1);
-    const message = messages[Math.floor(Math.random() * messages.length)];
-    setConversation((prev) => [...prev, `😄 Response: ${message}`]);
-  };
+  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Phir Game: Endless Fun! 🤔</h1>
-        <div className="card">
-          <button onClick={handlePhirClick}>
-            Phir clicked {phirCount} times!
-          </button>
-          <button onClick={askQuestion}>Ask a Random Question</button>
-        </div>
-        <h3>{currentQuestion}</h3>
-        <div className="conversation-box">
-          <h2>Conversation:</h2>
-          <ul>
-            {conversation.map((line, index) => (
-              <li key={index}>{line}</li>
-            ))}
-          </ul>
-        </div>
-        <footer>
-          <p>
-            Cutieeeee...! 😂
-          </p>
-        </footer>
-      </header>
-    </div>
-  );
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
