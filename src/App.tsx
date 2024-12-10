@@ -57,7 +57,7 @@ function App() {
         </div>
         <footer>
           <p>
-            Cuteeeiiiiiii! 😂
+            Cuteeeiiiiiiii! 😂
           </p>
         </footer>
       </header>
