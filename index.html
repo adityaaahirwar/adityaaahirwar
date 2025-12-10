@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- ✅ Primary SEO -->
+    <title>Aditya Ahirwar | Website Developer & Meta & Google Ads Expert</title>
+    <meta
+      name="description"
+      content="Aditya Ahirwar is a Website Developer and Meta & Google Ads Expert helping businesses grow with high-converting websites and ROI-focused ad campaigns."
+    />
+    <meta
+      name="keywords"
+      content="Aditya Ahirwar, website developer, web designer, Google Ads expert, Meta Ads expert, Facebook ads, performance marketing, landing pages, portfolio, India"
+    />
+    <meta name="author" content="Aditya Ahirwar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="adityaaahirwar.vercel.app" />
+
+    <!-- ✅ Favicon (your /public/image/aditya.jpg) -->
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="public/image/aditya.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="public/image/aditya.png"
+    />
+
+    <!-- ✅ Open Graph (for social sharing) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Aditya Ahirwar | Website Developer & Meta & Google Ads Expert"
+    />
+    <meta
+      property="og:description"
+      content="Futuristic portfolio of Aditya Ahirwar – Website Developer and Meta & Google Ads Expert. High-impact websites & high-ROI ad campaigns."
+    />
+    <meta property="og:url" content="adityaaahirwar.vercel.app" />
+    <meta
+      property="og:image"
+      content="https://adityaaahirwar.vercel.app/public/image/aditya.jpg"
+    />
+    <meta property="og:site_name" content="Aditya Ahirwar Portfolio" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Aditya Ahirwar | Website Developer & Meta & Google Ads Expert"
+    />
+    <meta
+      name="twitter:description"
+      content="Futuristic portfolio of Website Developer & Ads Expert, Aditya Ahirwar. Converting websites & powerful ad strategies."
+    />
+    <meta
+      name="twitter:image"
+      content="https://adityaaahirwar.vercel.app/public/image/aditya.png"
+    />
+    <meta name="twitter:creator" content="@adityaaahirwar" />
+
+    <!-- ✅ Structured Data (SEO JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aditya Ahirwar",
+        "jobTitle": "Website Developer | Meta & Google Ads Expert",
+        "url": "https://adityaaahirwar.vercel.app/",
+        "image": "https://adityaaahirwar.vercel.app/public/image/aditya.png",
+        "email": "mailto:adityaaahirwar1@gmail.com",
+        "telephone": "+91-7610178376",
+        "sameAs": [
+          "https://instagram.com/adityaaahirwar",
+          "https://facebook.com/adityaaahirwar",
+          "https://youtube.com/adityaaahirwar",
+          "https://x.com/adityaaahirwar",
+          "https://linkedin.com/in/adityaaahirwar"
+        ]
+      }
+    </script>
+
+    <!-- Tailwind + Fonts (as you had) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "neon-cyan": "#00f3ff",
+              "neon-purple": "#bd00ff",
+              "deep-space": "#050510",
+              "glass-border": "rgba(255, 255, 255, 0.1)",
+              "glass-surface": "rgba(255, 255, 255, 0.03)"
+            },
+            fontFamily: {
+              sans: ["Space Grotesk", "sans-serif"],
+              display: ["Orbitron", "sans-serif"],
+              tech: ["Rajdhani", "sans-serif"]
+            },
+            backgroundImage: {
+              "holo-gradient":
+                "linear-gradient(135deg, rgba(0,243,255,0.1) 0%, rgba(189,0,255,0.1) 100%)"
+            },
+            boxShadow: {
+              neon: "0 0 20px rgba(0, 243, 255, 0.3)",
+              "neon-strong": "0 0 30px rgba(0, 243, 255, 0.5)",
+              "purple-glow": "0 0 20px rgba(189, 0, 255, 0.3)"
+            }
+          }
+        }
+      };
+    </script>
+
+    <style>
+      body {
+        background-color: #050510;
+        color: white;
+        overflow-x: hidden;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .text-glow {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050510;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00f3ff;
+      }
+    </style>
+
+    <!-- React / Import Map / Styles -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.1",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+          "react/": "https://esm.sh/react@^19.2.1/",
+          "lucide-react": "https://esm.sh/lucide-react@^0.559.0",
+          "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
