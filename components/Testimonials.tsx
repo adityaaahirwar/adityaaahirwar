@@ -1,39 +1,75 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
-import { Testimonial } from '../types';
 
+/* =========================
+   Testimonial Type
+========================= */
+interface Testimonial {
+  name: string;
+  role: string;
+  company: string;
+  content: string;
+  avatar: string;
+}
+
+/* =========================
+   REAL CLIENT TESTIMONIALS
+========================= */
 const testimonials: Testimonial[] = [
   {
-    name: "Sarah Jenkins",
-    role: "CEO",
-    company: "TechNova",
-    content: "Aditya's ability to blend high-end design with conversion-focused ad strategies is unmatched. Our lead volume tripled in 3 months.",
-    avatar: "https://picsum.photos/seed/t1/100/100"
-  },
-  {
-    name: "Marcus Chen",
-    role: "Marketing Director",
-    company: "FutureScale",
-    content: "The website he built for us feels like it's from 2030. Incredibly fast, responsive, and the ad integration was seamless.",
-    avatar: "https://picsum.photos/seed/t2/100/100"
-  },
-  {
-    name: "Elena Rodriguez",
+    name: "Pratiksha Singh",
     role: "Founder",
-    company: "Luxe Apparel",
-    content: "Professional, skilled, and visionary. The Meta ads campaign he ran for our summer launch was our most profitable ever.",
-    avatar: "https://picsum.photos/seed/t3/100/100"
+    company: "Marble Bliss",
+    content:
+      "Our brand needed a premium online presence, and Aditya delivered exactly that. The website not only looks elegant but also brings genuine business inquiries regularly.",
+    avatar: "https://ui-avatars.com/api/?name=Pratiksha+Singh&background=0D8ABC&color=fff"
   },
   {
-    name: "David Wright",
-    role: "CTO",
-    company: "Orbital Systems",
-    content: "We needed a UI that communicated 'future' instantly. Aditya delivered exactly that. The animations are buttery smooth.",
-    avatar: "https://picsum.photos/seed/t4/100/100"
+    name: "Rahul Fukrya",
+    role: "Director",
+    company: "Shreenath Industries",
+    content:
+      "Aditya understood our manufacturing business perfectly. The website he created improved our credibility and helped us connect with serious buyers.",
+    avatar: "https://ui-avatars.com/api/?name=Rahul+Fukrya&background=7C3AED&color=fff"
+  },
+  {
+    name: "Harsh Jain",
+    role: "Owner",
+    company: "Singhai TVS",
+    content:
+      "From vehicle listings to service inquiries, everything is smooth and professional. The website has become a strong digital asset for our dealership.",
+    avatar: "https://ui-avatars.com/api/?name=Harsh+Jain&background=059669&color=fff"
+  },
+  {
+    name: "Dhwaj Dronawat",
+    role: "Founder",
+    company: "Pix Media Digital Solutions",
+    content:
+      "Clean design, fast performance, and clear messaging — exactly what an agency website needs. Aditya’s work helped us convert visitors into clients.",
+    avatar: "https://ui-avatars.com/api/?name=Dhwaj+Dronawat&background=DC2626&color=fff"
+  },
+  {
+    name: "Aditya Ahirwar",
+    role: "Founder & Builder",
+    company: "MPGO Platform",
+    content:
+      "MPGO was built to simplify government services for users. This platform reflects scalability, automation, and a user-first approach from day one.",
+    avatar: "https://ui-avatars.com/api/?name=Aditya+Ahirwar&background=0EA5E9&color=fff"
+  },
+  {
+    name: "Brigadier",
+    role: "Organizer",
+    company: "The Heritage Walk",
+    content:
+      "The website beautifully represents our cultural vision. Storytelling, structure, and booking flow were handled with great attention to detail.",
+    avatar: "https://ui-avatars.com/api/?name=Heritage+Walk&background=92400E&color=fff"
   }
 ];
 
+/* =========================
+   Testimonials Component
+========================= */
 export const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -78,82 +114,85 @@ export const Testimonials: React.FC = () => {
   return (
     <div className="py-20 bg-gradient-to-b from-transparent to-black/40 overflow-hidden">
       <div className="container mx-auto px-6">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-display font-bold">Client <span className="text-neon-purple">Stories</span></h2>
+          <h2 className="text-4xl font-display font-bold">
+            Client <span className="text-neon-purple">Stories</span>
+          </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-transparent via-neon-cyan to-transparent mx-auto mt-4" />
         </div>
 
         <div className="relative max-w-5xl mx-auto h-[450px] md:h-[400px]">
-           {/* Navigation Buttons */}
-           <button 
-             onClick={handlePrev}
-             className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass-panel hover:bg-neon-cyan/20 transition-all text-white border border-white/10 hover:border-neon-cyan group"
-           >
-             <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-           </button>
-           
-           <button 
-             onClick={handleNext}
-             className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass-panel hover:bg-neon-cyan/20 transition-all text-white border border-white/10 hover:border-neon-cyan group"
-           >
-             <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-           </button>
+          {/* Navigation */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass-panel hover:bg-neon-cyan/20 transition-all text-white border border-white/10 hover:border-neon-cyan"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-           <div className="relative w-full h-full flex items-center justify-center px-4 md:px-0">
-             <AnimatePresence initial={false} custom={direction} mode="wait">
-               <motion.div
-                 key={currentIndex}
-                 custom={direction}
-                 variants={variants}
-                 initial="enter"
-                 animate="center"
-                 exit="exit"
-                 transition={{
-                   x: { type: "spring", stiffness: 300, damping: 30 },
-                   opacity: { duration: 0.2 }
-                 }}
-                 className="absolute w-full md:w-[80%]"
-               >
-                 <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative backdrop-blur-xl shadow-neon-strong/20">
-                    <Quote className="absolute top-6 right-6 text-neon-cyan/20 w-16 h-16 rotate-12" />
-                    
-                    <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-                      <div className="relative group shrink-0">
-                         <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-neon-cyan/50 shadow-[0_0_15px_rgba(0,243,255,0.3)]">
-                           <img 
-                             src={testimonials[currentIndex].avatar} 
-                             alt={testimonials[currentIndex].name} 
-                             className="w-full h-full object-cover" 
-                           />
-                         </div>
-                         <div className="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-20" />
-                      </div>
-                      
-                      <div className="flex-1 text-center md:text-left">
-                        <div className="flex justify-center md:justify-start gap-1 mb-4 text-neon-purple">
-                          {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                        </div>
-                        
-                        <p className="text-xl md:text-2xl text-gray-200 font-light italic leading-relaxed mb-6">
-                          "{testimonials[currentIndex].content}"
-                        </p>
-                        
-                        <div>
-                          <h4 className="text-lg font-bold font-display text-white">{testimonials[currentIndex].name}</h4>
-                          <p className="text-sm font-tech text-neon-cyan tracking-wider uppercase">
-                            {testimonials[currentIndex].role} @ {testimonials[currentIndex].company}
-                          </p>
-                        </div>
-                      </div>
+          <button
+            onClick={handleNext}
+            className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full glass-panel hover:bg-neon-cyan/20 transition-all text-white border border-white/10 hover:border-neon-cyan"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Slider */}
+          <div className="relative w-full h-full flex items-center justify-center">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="absolute w-full md:w-[80%]"
+              >
+                <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 relative">
+                  <Quote className="absolute top-6 right-6 text-neon-cyan/20 w-16 h-16 rotate-12" />
+
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-neon-cyan/50">
+                      <img
+                        src={testimonials[currentIndex].avatar}
+                        alt={testimonials[currentIndex].name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                 </div>
-               </motion.div>
-             </AnimatePresence>
-           </div>
+
+                    <div className="flex-1 text-center md:text-left">
+                      <div className="flex justify-center md:justify-start gap-1 mb-4 text-neon-purple">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-current" />
+                        ))}
+                      </div>
+
+                      <p className="text-xl md:text-2xl text-gray-200 italic mb-6">
+                        "{testimonials[currentIndex].content}"
+                      </p>
+
+                      <h4 className="text-lg font-bold text-white">
+                        {testimonials[currentIndex].name}
+                      </h4>
+                      <p className="text-sm text-neon-cyan uppercase tracking-wider">
+                        {testimonials[currentIndex].role} @ {testimonials[currentIndex].company}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Indicators */}
-        <div className="flex justify-center gap-3 mt-4 md:mt-8">
+        <div className="flex justify-center gap-3 mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -161,8 +200,10 @@ export const Testimonials: React.FC = () => {
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);
               }}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'w-8 bg-neon-cyan shadow-[0_0_10px_#00f3ff]' : 'w-2 bg-white/20 hover:bg-white/40'
+              className={`h-1 rounded-full transition-all ${
+                index === currentIndex
+                  ? 'w-8 bg-neon-cyan'
+                  : 'w-2 bg-white/20'
               }`}
             />
           ))}
@@ -171,3 +212,5 @@ export const Testimonials: React.FC = () => {
     </div>
   );
 };
+
+export default Testimonials;
